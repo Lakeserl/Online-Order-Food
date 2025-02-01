@@ -1,7 +1,6 @@
-package com.FoorOrdering.model.User;
+package com.FoorOrdering.model;
 
 import com.FoorOrdering.DTO.RestaurantDTO;
-import com.FoorOrdering.model.Address;
 import com.FoorOrdering.model.Order.Order;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -31,7 +30,19 @@ public class User {
 
     private String password;
 
-    private USER_ROLES role;
+    private USER_ROLES role=USER_ROLES.ROLE_CUSTOMER;
+// Thêm getter fix bugs
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public USER_ROLES getRole() {
+        return role;
+    }
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")

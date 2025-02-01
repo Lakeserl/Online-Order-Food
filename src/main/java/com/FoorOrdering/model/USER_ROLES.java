@@ -1,4 +1,4 @@
-package com.FoorOrdering.model.User;
+package com.FoorOrdering.model;
 
 public enum USER_ROLES {
     ROLE_CUSTOMER,

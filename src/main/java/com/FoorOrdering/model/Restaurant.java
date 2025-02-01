@@ -1,7 +1,6 @@
 package com.FoorOrdering.model;
 
 import com.FoorOrdering.model.Order.Order;
-import com.FoorOrdering.model.User.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

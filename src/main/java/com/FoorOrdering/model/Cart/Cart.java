@@ -1,6 +1,6 @@
 package com.FoorOrdering.model.Cart;
 
-import com.FoorOrdering.model.User.User;
+import com.FoorOrdering.model.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

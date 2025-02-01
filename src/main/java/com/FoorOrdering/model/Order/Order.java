@@ -3,7 +3,7 @@ package com.FoorOrdering.model.Order;
 
 import com.FoorOrdering.model.Address;
 import com.FoorOrdering.model.Restaurant;
-import com.FoorOrdering.model.User.User;
+import com.FoorOrdering.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
