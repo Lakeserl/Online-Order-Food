@@ -34,7 +34,8 @@ public class AppConfig {
                 ).addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()));
-        return null;
+
+        return http.build();
     }
 
     private CorsConfigurationSource corsConfigurationSource() {
@@ -45,7 +46,7 @@ public class AppConfig {
 
                 config.setAllowedOrigins(Arrays.asList(
                         "https://food-ordering.vercel.app",
-                        "https://localhost:3000"
+                        "https://localhost:8080"
                 ));
                 config.setAllowedMethods(Collections.singletonList("*"));
                 config.setAllowCredentials(true);
