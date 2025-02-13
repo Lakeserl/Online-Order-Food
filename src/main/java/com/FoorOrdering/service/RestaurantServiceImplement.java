@@ -9,7 +9,6 @@ import com.FoorOrdering.repository.RestaurantRepository;
 import com.FoorOrdering.repository.UserRespository;
 import com.FoorOrdering.request.CreateRestaurant;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -26,7 +25,7 @@ public class RestaurantServiceImplement implements RestaurantService {
     private AddressRepository addressRepository;
 
     @Autowired
-    private UserRespository userRespository;
+    private UserRespository userRespository ;
 
 
     @Override
@@ -106,19 +105,14 @@ public class RestaurantServiceImplement implements RestaurantService {
     public RestaurantDTO addToFavourites(Long restaurantId, User user) throws Exception {
         Restaurant restaurant = findRestaurantById(restaurantId);
 
-        RestaurantDTO dto = new RestaurantDTO();
-        dto.setDescription(restaurant.getDescription());
-        dto.setImages(restaurant.getImages());
-        dto.setTitle(restaurant.getName());
-        dto.setId(restaurantId);
-
-        if(user.getFavourite().contains(dto)){
-            user.getFavourite().remove(dto);
+        if (user.getFavourite().contains(restaurant)) {
+            user.getFavourite().remove(restaurant);
+        } else {
+            user.getFavourite().add(restaurant);
         }
-        else user.getFavourite().add(dto);
 
         userRespository.save(user);
-        return dto;
+        return restaurant;
     }
 
     @Override

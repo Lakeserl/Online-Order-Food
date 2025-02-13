@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/admin/restaurants")
+@RequestMapping("/api/admin/restaurants")
 public class AdminRestaurantController {
     @Autowired
     private RestaurantService restaurantService;
@@ -77,7 +77,7 @@ public class AdminRestaurantController {
     ) throws Exception {
         User user = userService.findUserByJwtToken(jwt);
 
-        Restaurant restaurant= restaurantService.findRestaurantById(user.getId());
+        Restaurant restaurant= restaurantService.getRestaurantById(user.getId());
 
         return new ResponseEntity<>(restaurant, HttpStatus.OK );
     }

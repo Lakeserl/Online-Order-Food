@@ -83,14 +83,6 @@ public class User {
         this.orders = orders;
     }
 
-    public List<RestaurantDTO> getFavourite() {
-        return favourite;
-    }
-
-    public void setFavourite(List<RestaurantDTO> favourite) {
-        this.favourite = favourite;
-    }
-
     public List<Address> getAddresses() {
         return addresses;
     }
@@ -103,10 +95,23 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Order> orders = new ArrayList<>();
 
-    @ElementCollection
-    private List<RestaurantDTO> favourite = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "user_favourite_restaurants",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "restaurant_id")
+    )
+    
+    private List<Restaurant> favourite = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
+
+    public List<Restaurant> getFavourite() {
+        return favourite;
+    }
+
+    //    @OneToMany
+//    private List<Restaurant> restaurants = new ArrayList<>();
 
 }

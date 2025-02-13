@@ -42,7 +42,7 @@ public class CustomerRestaurantController {
         return new ResponseEntity<>(restaurant, HttpStatus.OK );
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id} ")
     public ResponseEntity<Restaurant> findRestaurantsbyId(
             @RequestHeader("Authorization") String jwt,
              @PathVariable Long id
@@ -54,7 +54,7 @@ public class CustomerRestaurantController {
         return new ResponseEntity<>(restaurant, HttpStatus.OK );
     }
 
-    @PutMapping("/{id}/add-your-favourite")
+    @PutMapping("/{id}/add-favourite")
     public ResponseEntity<RestaurantDTO> addToYourFavourite(
             @RequestHeader("Authorization") String jwt,
             @PathVariable Long id

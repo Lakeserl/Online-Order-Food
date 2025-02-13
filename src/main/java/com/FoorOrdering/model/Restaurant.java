@@ -1,5 +1,6 @@
 package com.FoorOrdering.model;
 
+import com.FoorOrdering.DTO.RestaurantDTO;
 import com.FoorOrdering.model.Order.Order;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -15,7 +16,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Restaurant {
+public class Restaurant extends RestaurantDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

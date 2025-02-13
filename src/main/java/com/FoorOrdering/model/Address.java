@@ -19,4 +19,8 @@ public class Address {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getFullAddress() {
+        return "Full address implementation";
+    }
 }
