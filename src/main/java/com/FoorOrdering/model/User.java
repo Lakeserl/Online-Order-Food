@@ -1,6 +1,5 @@
 package com.FoorOrdering.model;
 
-import com.FoorOrdering.DTO.RestaurantDTO;
 import com.FoorOrdering.model.Order.Order;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -101,7 +100,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "restaurant_id")
     )
-    
+
     private List<Restaurant> favourite = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

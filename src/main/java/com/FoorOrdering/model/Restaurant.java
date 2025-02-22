@@ -21,6 +21,7 @@ public class Restaurant extends RestaurantDTO {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JsonIgnore
     @OneToOne
     private User owner;
 
@@ -54,7 +55,7 @@ public class Restaurant extends RestaurantDTO {
 
     //Getter and Setter
 
-    public Long getId() {
+    public Long getId(Long restaurantId) {
         return id;
     }
 
