@@ -12,7 +12,7 @@ public interface FoodServices {
 
     void deleteFood(Long foodId) throws Exception;
 
-    public List<Food> getRestaurantsFood(Long restaurantId,
+    public List<Food> getRestaurantFood(Long restaurantId,
                                          boolean isVegerarians,
                                          boolean nonvegetarinan,
                                          boolean seasonal,
