@@ -41,8 +41,6 @@ public class JwtTokenValidator extends OncePerRequestFilter {
                 String email=String.valueOf(claims.get("email"));
                 String authorities=String.valueOf((claims.get("authorities")));
 
-                //ROLE_CUSTOMER, ROLE_ADMIN
-
                 List<GrantedAuthority> auth= AuthorityUtils.commaSeparatedStringToAuthorityList(authorities);
                 Authentication authentication = new UsernamePasswordAuthenticationToken(email,null,auth);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
